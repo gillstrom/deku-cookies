@@ -2,7 +2,7 @@
 
 > Simple cookie warning component for [Deku](https://github.com/dekujs/deku)
 
-Accordning to the law in Sweden (I guess there is more) the visitor of a website using cookies should get information about this and has to give their consent.
+Accordning to the law in Europe the visitor of a website using cookies should get information about this and has to give their consent.
 
 
 ## Install
