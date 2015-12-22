@@ -1,0 +1,66 @@
+# deku-cookies
+
+> Simple cookie warning component for [Deku](https://github.com/dekujs/deku)
+
+Accordning to the law in Sweden (I guess there is more) the visitor of a website using cookies should get information about this and has to give their consent.
+
+
+## Install
+
+```
+$ npm install --save deku-cookies
+```
+
+
+## Usage
+
+```js
+import Cookies from 'deku-cookies';
+
+export function render() {
+	const content = <div>We are using cookies, do you accept?</div>;
+
+	return (
+		<Cookies button='Accept' content={content}/>
+	);
+}
+```
+
+## Attributes
+
+### button
+
+Type: `string`
+
+Text to be shown on button.
+
+### class
+
+Type: `string`
+Default: `Cookies`
+
+Class to be added to the element.
+
+### content
+
+Type: `element`
+
+Content to be shown in the component.
+
+### maxage
+
+Type: `number`
+Default: `7889238000`
+
+Time before the cookie is removed. Default is around 3 months.
+
+### onClick
+
+Type: `function`
+
+Function that runs on button click.
+
+
+## License
+
+MIT © [Andreas Gillström](http://github.com/gillstrom)

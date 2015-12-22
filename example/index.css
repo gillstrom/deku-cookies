@@ -1,0 +1,36 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: verdana;
+}
+
+.Cookies {
+	padding: 20px;
+	text-align: center;
+	background-color: IndianRed;
+	color: white;
+}
+
+.Cookies-content {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.Cookies-button {
+	padding: 5px 10px;
+	background-color: IndianRed;
+	color: white;
+	border: 0;
+	outline: 2px solid white;
+	cursor: pointer;
+}
+
+.Cookies-button:hover {
+	background-color: white;
+	color: IndianRed;
+}
