@@ -5,7 +5,7 @@ import dom from 'magic-virtual-element';
 
 const propTypes = {
 	button: {
-		type: 'string'
+		type: 'object'
 	},
 	class: {
 		type: 'string'
@@ -39,6 +39,22 @@ function render({props, state}, setState) {
 		return <noscript/>;
 	}
 
+	function getButton() {
+		if (typeof button === 'object') {
+			if (!button.attributes.onClick) {
+				button.attributes.onClick = handle;
+			}
+
+			return button;
+		}
+
+		return (
+			<Button class='Cookies-button' onClick={handle}>
+				{button}
+			</Button>
+		);
+	}
+
 	function handle() {
 		cookie('deku-cookie-accepted', 'true', {maxage});
 
@@ -54,9 +70,7 @@ function render({props, state}, setState) {
 			<div class='Cookies-content'>
 				{content}
 			</div>
-			<Button class='Cookies-button' onClick={handle}>
-				{button}
-			</Button>
+			{getButton()}
 		</div>
 	);
 }

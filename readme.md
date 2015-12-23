@@ -30,9 +30,9 @@ export function render() {
 
 ### button
 
-Type: `string`
+Type: `element` or `string`
 
-Text to be shown on button.
+Content to be shown as button. If a `string` is sent in, a button will be built automatically.
 
 ### class
 
@@ -43,7 +43,7 @@ Class to be added to the element.
 
 ### content
 
-Type: `element`
+Type: `element` or `string`
 
 Content to be shown in the component.
 
