@@ -47,6 +47,12 @@ Type: `element` or `string`
 
 Content to be shown in the component.
 
+### isAccepted
+
+Type: `function`
+
+Function that runs on `afterMount` and returns a `boolean`.
+
 ### maxage
 
 Type: `number`

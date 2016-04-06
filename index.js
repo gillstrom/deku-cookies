@@ -13,6 +13,9 @@ const propTypes = {
 	content: {
 		type: 'object'
 	},
+	isAccepted: {
+		type: 'function'
+	},
 	maxage: {
 		type: 'number'
 	},
@@ -26,8 +29,20 @@ const defaultProps = {
 };
 
 function afterMount({props}, el, setState) {
+	const {isAccepted} = props;
+
 	if (!cookie('deku-cookie-accepted')) {
 		setState({active: true});
+
+		if (isAccepted) {
+			isAccepted(false);
+		}
+
+		return;
+	}
+
+	if (isAccepted) {
+		isAccepted(true);
 	}
 }
 
