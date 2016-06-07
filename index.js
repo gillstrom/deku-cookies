@@ -28,7 +28,35 @@ const defaultProps = {
 	maxage: 7889238000
 };
 
-function afterMount({props}, el, setState) {
+const handle = ({maxage, onClick}, setState) => () => {
+	cookie('deku-cookie-accepted', 'true', {maxage});
+
+	setState({active: false});
+
+	if (onClick) {
+		onClick();
+	}
+};
+
+const getButton = (props, setState) => {
+	const {button} = props;
+
+	if (typeof button === 'object') {
+		if (!button.attributes.onClick) {
+			button.attributes.onClick = handle;
+		}
+
+		return button;
+	}
+
+	return (
+		<Button class='Cookies-button' onClick={handle(props, setState)}>
+			{button}
+		</Button>
+	);
+};
+
+const afterMount = ({props}, el, setState) => {
 	const {isAccepted} = props;
 
 	if (!cookie('deku-cookie-accepted')) {
@@ -44,9 +72,9 @@ function afterMount({props}, el, setState) {
 	if (isAccepted) {
 		isAccepted(true);
 	}
-}
+};
 
-function render({props, state}, setState) {
+const render = ({props, state}, setState) => {
 	const {button, content, maxage, onClick} = props;
 	const {active} = state;
 
@@ -54,40 +82,14 @@ function render({props, state}, setState) {
 		return <noscript/>;
 	}
 
-	function getButton() {
-		if (typeof button === 'object') {
-			if (!button.attributes.onClick) {
-				button.attributes.onClick = handle;
-			}
-
-			return button;
-		}
-
-		return (
-			<Button class='Cookies-button' onClick={handle}>
-				{button}
-			</Button>
-		);
-	}
-
-	function handle() {
-		cookie('deku-cookie-accepted', 'true', {maxage});
-
-		setState({active: false});
-
-		if (onClick) {
-			onClick();
-		}
-	}
-
 	return (
 		<div class={['Cookies', props.class]}>
 			<div class='Cookies-content'>
 				{content}
 			</div>
-			{getButton()}
+			{getButton(props, setState)}
 		</div>
 	);
-}
+};
 
 export default {afterMount, defaultProps, propTypes, render};
