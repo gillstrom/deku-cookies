@@ -75,7 +75,7 @@ const afterMount = ({props}, el, setState) => {
 	}
 };
 
-const shouldUpdate = ({state}, nextProps, {active}) => !state.active === active;
+const shouldUpdate = ({state}, nextProps, {active}) => state.active !== active;
 
 const render = ({props, state}, setState) => {
 	const {button, content, maxage, onClick} = props;
