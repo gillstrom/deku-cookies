@@ -25,6 +25,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+	active: false,
 	maxage: 7889238000
 };
 
@@ -73,6 +74,8 @@ const afterMount = ({props}, el, setState) => {
 		isAccepted(true);
 	}
 };
+
+const shouldUpdate = ({state}, nextProps, {active}) => !state.active === active;
 
 const render = ({props, state}, setState) => {
 	const {button, content, maxage, onClick} = props;
