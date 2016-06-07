@@ -25,6 +25,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+	active: false,
 	maxage: 7889238000
 };
 
@@ -74,6 +75,8 @@ const afterMount = ({props}, el, setState) => {
 	}
 };
 
+const shouldUpdate = ({state}, nextProps, {active}) => !state.active === active;
+
 const render = ({props, state}, setState) => {
 	const {button, content, maxage, onClick} = props;
 	const {active} = state;
@@ -92,4 +95,4 @@ const render = ({props, state}, setState) => {
 	);
 };
 
-export default {afterMount, defaultProps, propTypes, render};
+export default {afterMount, defaultProps, propTypes, render, shouldUpdate};
