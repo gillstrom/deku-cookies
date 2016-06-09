@@ -1,6 +1,7 @@
 /** @jsx dom */
 import Button from 'deku-button';
 import cookie from 'component-cookie';
+import deepEqual from 'deep-equal';
 import dom from 'magic-virtual-element';
 
 const propTypes = {
@@ -75,7 +76,7 @@ const afterMount = ({props}, el, setState) => {
 	}
 };
 
-const shouldUpdate = ({state}, nextProps, {active}) => state.active !== active;
+const shouldUpdate = ({props, state}, nextProps, {active}) => !deepEqual(props, nextProps) || state.active !== active;
 
 const render = ({props, state}, setState) => {
 	const {button, content, maxage, onClick} = props;

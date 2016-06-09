@@ -36,6 +36,7 @@
   ],
   "dependencies": {
     "component-cookie": "^1.1.2",
+    "deep-equal": "^1.0.1",
     "deku-button": "^1.1.1",
     "magic-virtual-element": "^1.0.6"
   },
