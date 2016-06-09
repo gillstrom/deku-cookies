@@ -41,11 +41,11 @@ const handle = ({maxage, onClick}, setState) => () => {
 };
 
 const getButton = (props, setState) => {
-	const {button} = props;
+	const {button, maxage, onClick} = props;
 
 	if (typeof button === 'object') {
 		if (!button.attributes.onClick) {
-			button.attributes.onClick = handle;
+			button.attributes.onClick = handle({maxage, onClick}, setState);
 		}
 
 		return button;
