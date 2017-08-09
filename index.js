@@ -11,6 +11,9 @@ const propTypes = {
 	class: {
 		type: 'string'
 	},
+	cookieName: {
+		'type': 'string'
+	},
 	content: {
 		type: 'object'
 	},
@@ -27,11 +30,12 @@ const propTypes = {
 
 const defaultProps = {
 	active: false,
+	cookieName: 'deku-cookie-accepted',
 	maxage: 7889238000
 };
 
-const handle = ({maxage, onClick}, setState) => () => {
-	cookie('deku-cookie-accepted', 'true', {maxage});
+const handleClick = ({cookieName, maxage, onClick}, setState) => () => {
+	cookie(cookieName, 'true', {maxage});
 
 	setState({active: false});
 
@@ -41,27 +45,27 @@ const handle = ({maxage, onClick}, setState) => () => {
 };
 
 const getButton = (props, setState) => {
-	const {button, maxage, onClick} = props;
+	const {button} = props;
 
 	if (typeof button === 'object') {
 		if (!button.attributes.onClick) {
-			button.attributes.onClick = handle({maxage, onClick}, setState);
+			button.attributes.onClick = handleClick(props, setState);
 		}
 
 		return button;
 	}
 
 	return (
-		<Button class='Cookies-button' onClick={handle(props, setState)}>
+		<Button class='Cookies-button' onClick={handleClick(props, setState)}>
 			{button}
 		</Button>
 	);
 };
 
 const afterMount = ({props}, el, setState) => {
-	const {isAccepted} = props;
+	const {cookieName, isAccepted} = props;
 
-	if (!cookie('deku-cookie-accepted')) {
+	if (!cookie(cookieName)) {
 		setState({active: true});
 
 		if (isAccepted) {

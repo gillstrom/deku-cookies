@@ -47,6 +47,13 @@ Type: `element` or `string`
 
 Content to be shown in the component.
 
+### content
+
+Type: `string`<br>
+Default: `'deku-cookie-accepted'`
+
+Name of cookie to be set.
+
 ### isAccepted
 
 Type: `function`
