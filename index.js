@@ -25,6 +25,9 @@ const propTypes = {
 	},
 	onClick: {
 		type: 'function'
+	},
+	secure: {
+		type: 'boolean'
 	}
 };
 
@@ -34,8 +37,8 @@ const defaultProps = {
 	maxage: 7889238000
 };
 
-const handleClick = ({cookieName, maxage, onClick}, setState) => () => {
-	cookie(cookieName, 'true', {maxage});
+const handleClick = ({cookieName, maxage, onClick, secure}, setState) => () => {
+	cookie(cookieName, 'true', {maxage, secure});
 
 	setState({active: false});
 

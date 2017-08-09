@@ -73,6 +73,13 @@ Type: `function`
 
 Function that runs on button click.
 
+### secure
+
+Type: `boolean`<br>
+Default: `false`
+
+Set a secure cookie.
+
 
 ## License
 
