@@ -79,7 +79,7 @@ const afterMount = ({props}, el, setState) => {
 const shouldUpdate = ({props, state}, nextProps, {active}) => !deepEqual(props, nextProps) || state.active !== active;
 
 const render = ({props, state}, setState) => {
-	const {button, content, maxage, onClick} = props;
+	const {content} = props;
 	const {active} = state;
 
 	if (!active) {
