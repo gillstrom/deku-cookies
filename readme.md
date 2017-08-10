@@ -36,7 +36,7 @@ Content to be shown as button. If a `string` is sent in, a button will be built 
 
 ### class
 
-Type: `string`
+Type: `string`<br>
 Default: `Cookies`
 
 Class to be added to the element.
@@ -47,6 +47,13 @@ Type: `element` or `string`
 
 Content to be shown in the component.
 
+### content
+
+Type: `string`<br>
+Default: `'deku-cookie-accepted'`
+
+Name of cookie to be set.
+
 ### isAccepted
 
 Type: `function`
@@ -55,7 +62,7 @@ Function that runs on `afterMount` and returns a `boolean`.
 
 ### maxage
 
-Type: `number`
+Type: `number`<br>
 Default: `7889238000`
 
 Time before the cookie is removed. Default is around 3 months.
@@ -65,6 +72,13 @@ Time before the cookie is removed. Default is around 3 months.
 Type: `function`
 
 Function that runs on button click.
+
+### secure
+
+Type: `boolean`<br>
+Default: `false`
+
+Set a secure cookie.
 
 
 ## License
