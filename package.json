@@ -1,6 +1,6 @@
 {
 	"name": "deku-cookies",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Cookie warning component for Deku",
 	"license": "MIT",
 	"repository": "gillstrom/deku-cookies",
