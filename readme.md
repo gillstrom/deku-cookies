@@ -8,7 +8,7 @@ Accordning to the law in Europe the visitor of a website using cookies should ge
 ## Install
 
 ```
-$ npm install --save deku-cookies
+$ npm install deku-cookies
 ```
 
 
@@ -17,14 +17,15 @@ $ npm install --save deku-cookies
 ```js
 import Cookies from 'deku-cookies';
 
-export function render() {
-	const content = <div>We are using cookies, do you accept?</div>;
+const content = <div>We are using cookies, do you accept?</div>;
 
-	return (
-		<Cookies button='Accept' content={content}/>
-	);
-}
+const render = () => (
+	<Cookies button='Accept' content={content}/>;
+);
+
+export default {render};
 ```
+
 
 ## Attributes
 
@@ -43,7 +44,7 @@ Class to be added to the element.
 
 ### content
 
-Type: `element` or `string`
+Type: `Element` `string`
 
 Content to be shown in the component.
 
@@ -56,7 +57,7 @@ Name of cookie to be set.
 
 ### isAccepted
 
-Type: `function`
+Type: `Function`
 
 Function that runs on `afterMount` and returns a `boolean`.
 
@@ -69,7 +70,7 @@ Time before the cookie is removed. Default is around 3 months.
 
 ### onClick
 
-Type: `function`
+Type: `Function`
 
 Function that runs on button click.
 
