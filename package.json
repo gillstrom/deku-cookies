@@ -13,9 +13,9 @@
 		"node": ">=0.10.0"
 	},
 	"scripts": {
-		"build": "browserify example/index.js -o example/build.js -dv",
+		"build": "webpack --module-bind js=babel-loader example/index.js example/build.js",
 		"prepublish": "babel --presets es2015,react index.js --out-file dist.js",
-		"test": "xo"
+		"test": "xo && ava"
 	},
 	"main": "dist.js",
 	"files": [
@@ -41,27 +41,30 @@
 		"magic-virtual-element": "^1.0.6"
 	},
 	"devDependencies": {
+		"assert-element": "^0.3.1",
+		"ava": "*",
 		"babel-cli": "^6.1.18",
+		"babel-loader": "^7.1.2",
 		"babel-preset-es2015": "^6.1.18",
 		"babel-preset-react": "^6.1.18",
-		"babelify": "^7.2.0",
-		"browserify": "^12.0.1",
+		"component-mock": "^0.1.0",
 		"deku": "^1.0.0 ",
-		"eslint-config-xo-react": "^0.3.0",
-		"eslint-plugin-react": "^3.9.0",
+		"eslint-config-xo-react": "^0.13.0",
+		"eslint-plugin-react": "^7.3.0",
+		"webpack": "^3.5.5",
 		"xo": "*"
 	},
-	"browserify": {
-		"transform": [
-			[
-				"babelify",
-				{
-					"presets": [
-						"es2015",
-						"react"
-					]
-				}
-			]
+	"ava": {
+		"babel": "inherit",
+		"failWithoutAssertions": false,
+		"require": [
+			"babel-register"
+		]
+	},
+	"babel": {
+		"presets": [
+			"es2015",
+			"react"
 		]
 	},
 	"xo": {

@@ -32,7 +32,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-	active: false,
 	cookieName: 'deku-cookie-accepted',
 	maxage: 7889238000
 };
